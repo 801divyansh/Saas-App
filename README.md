@@ -30,8 +30,8 @@ Welcome to **EduBuddy AI**, a modern SaaS platform that leverages AI to provide 
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/your-repo.git
-cd your-repo/saas_app
+git clone https://github.com/801divyansh/Saas-App.git
+cd Saas-App/saas_app
 ```
 
 ### 2. Install Dependencies
@@ -94,7 +94,7 @@ This project is licensed under the [MIT License](LICENSE).
 ## 📬 Contact
 For questions, feedback, or support:
 - GitHub Issues
-- Email: [your-email@example.com](mailto:your-email@example.com)
+- Email: [sdivyansh0007@gmail.com](mailto:sdivyansh0007@gmail.com)
 
 ---
 
