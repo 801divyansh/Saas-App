@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EduBuddy AI – SaaS AI Tutor Platform 🚀
 
-## Getting Started
+Welcome to **EduBuddy AI**, a modern SaaS platform that leverages AI to provide real-time, interactive tutoring experiences. This project is built with Next.js, Clerk authentication, and Vapi AI voice technology, offering a seamless and engaging learning journey for students.
 
-First, run the development server:
+---
 
+## ✨ Features
+- 🎤 **Voice-based AI Companions** for real-time tutoring
+- 🧑‍🎓 Personalized learning sessions by subject, topic, and style
+- 🔒 Secure authentication with Clerk
+- 📱 Responsive design with mobile-friendly navigation
+- 📝 Session history and progress tracking
+- 🌈 Beautiful, modern UI with animated effects
+
+---
+
+## 🛠️ Tech Stack
+- **Next.js 13+ (App Router)**
+- **React 18**
+- **TypeScript**
+- **Tailwind CSS**
+- **Clerk** (Authentication)
+- **Vapi AI** (Voice/AI SDK)
+- **Supabase** (Database)
+- **Lottie** (Animations)
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-username/your-repo.git
+cd your-repo/saas_app
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install Dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Set Up Environment Variables
+Create a `.env.local` file in the `saas_app` directory and add:
+```env
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+NEXT_PUBLIC_VAPI_WEB_TOKEN=your_vapi_token
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Run the Development Server
+```bash
+npm run dev
+```
+Visit [http://localhost:3000](http://localhost:3000) to view the app.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📁 Folder Structure
+```
+saas_app/
+  ├── app/                # Next.js app directory (pages, layouts, routes)
+  ├── components/         # Reusable React components
+  ├── constants/          # Static data and constants
+  ├── lib/                # Utility functions, API clients, actions
+  ├── public/             # Static assets (icons, images)
+  ├── types/              # TypeScript type definitions
+  ├── globals.css         # Global styles
+  ├── next.config.ts      # Next.js configuration
+  └── ...
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🌐 Deployment
+This project is ready for deployment on [Vercel](https://vercel.com/):
+- Push your code to GitHub
+- Connect your repo to Vercel
+- Set environment variables in Vercel dashboard
+- Deploy and enjoy!
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🤝 Contributing
+Contributions are welcome! Please open issues or submit pull requests for improvements and bug fixes.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📄 License
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 📬 Contact
+For questions, feedback, or support:
+- GitHub Issues
+- Email: [your-email@example.com](mailto:your-email@example.com)
+
+---
+
+> Made with ❤️ by the EduBuddy AI Team
