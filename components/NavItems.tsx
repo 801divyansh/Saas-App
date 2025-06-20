@@ -2,6 +2,7 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link"
 import { usePathname } from "next/navigation";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
     { label: "Home", href: "/" },
@@ -26,6 +27,7 @@ const NavItems = ({ mobile = false }: { mobile?: boolean }) => {
                     {label}
                 </Link>
             ))}
+            <ThemeToggle />
         </nav>
     );
 };

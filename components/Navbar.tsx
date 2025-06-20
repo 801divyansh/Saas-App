@@ -10,11 +10,16 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <nav className="navbar py-4 lg:px-8 px-4 p-2 border rounded-2xl backdrop-blur-sm bg-background/80 sticky top-0 z-50 shadow-md">
+    <motion.nav 
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="navbar py-4 lg:px-8 px-4 p-2 backdrop-blur-xl rounded-2xl bg-background/50 border border-neutral-300 dark:border-neutral-900  sticky top-0 z-50 shadow-md"
+    >
       <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-        <Link href="/" className="flex">
+        <Link href="/" className="flex transition-opacity hover:opacity-90">
           <div className="flex items-center gap-2.5 cursor-pointer text-2xl font-bold select-none">
-            <span className="text-black">EduBuddy</span>
+            <span className="text-black dark:text-white">EduBuddy</span>
             <span
               className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent animate-gradient-x"
               style={{
@@ -74,7 +79,7 @@ const Navbar = () => {
           </div>
         </div>
       )}
-    </nav>
+    </motion.nav>
   )
 }
 
