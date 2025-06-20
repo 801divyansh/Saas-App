@@ -9,8 +9,8 @@ const Home = async () => {
     const recentSessionCompanions = await getRecentSessions(10);
     
   return (
-    <main>
-      <h1 className='text-2xl font-bold'>Popular Companions</h1>
+   <>
+      <h1 className='text-3xl font-bold mt-7'>Popular Companions</h1>
         
         <section className="home-section">
           {companions.map((companion) => (
@@ -31,7 +31,7 @@ const Home = async () => {
           />
           <CTA />
         </section>
-    </main>
+      </>
   )
 }
 

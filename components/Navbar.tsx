@@ -4,27 +4,29 @@ import NavItems from "./NavItems"
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs"
 import { Button } from "./ui/button"
 import { useState } from "react"
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <nav className="navbar flex items-center px-4 py-2 fixed top-0 ">
-      {/* Left: Logo */}
-      <Link href="/" className="flex-shrink-0">
-        <div className="flex items-center gap-2.5 cursor-pointer text-2xl font-bold select-none">
-          <span className="text-black">EduBuddy</span>
-          <span
-            className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent animate-gradient-x"
-            style={{
-              backgroundSize: '200% 200%',
-              animation: 'gradient-x 3s ease-in-out infinite',
-            }}
-          >
-            AI
-          </span>
-        </div>
-      </Link>
+    <nav className="navbar py-4 lg:px-8 px-4 p-2 border rounded-2xl backdrop-blur-sm bg-background/80 sticky top-0 z-50 shadow-md">
+      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+        <Link href="/" className="flex">
+          <div className="flex items-center gap-2.5 cursor-pointer text-2xl font-bold select-none">
+            <span className="text-black">EduBuddy</span>
+            <span
+              className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent animate-gradient-x"
+              style={{
+                backgroundSize: '200% 200%',
+                animation: 'gradient-x 3s ease-in-out infinite',
+              }}
+            >
+              AI
+            </span>
+          </div>
+        </Link>
+      </motion.div>
 
       <div className="flex justify-between items-center">
         <div className="flex-1 flex justify-center">

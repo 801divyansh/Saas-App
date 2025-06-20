@@ -13,7 +13,7 @@ const CompanionsLibrary = async ({ searchParams } : SearchParams ) => {
 
   return (
     <main>
-      <section className="flex justify-between gap-4 max-sm:flex-col">
+      <section className="flex justify-between gap-4 max-sm:flex-col mt-7">
         <h1>Companion Library</h1>
         <div className="flex gap-4">
           <SearchInput />
