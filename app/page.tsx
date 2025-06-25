@@ -1,11 +1,12 @@
 export const dynamic = "force-dynamic";
-import Home from '@/components/Home'
+import LandingPage from '@/components/LandingPage';
 
 const Page = async () => {
   return (
-    <main>
-      <Home />
-    </main>
+    <div className="bg-transparent dark:bg-black/5 backdrop-blur-sm rounded-xl"
+>
+      <LandingPage />
+    </div>
   )
 }
 

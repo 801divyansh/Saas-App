@@ -1,15 +1,15 @@
 import { getAllCompanions, getRecentSessions } from "@/lib/actions/companion.actions";
-import CompanionCard from "./CompanionCard";
+import CompanionCard from "@/components/CompanionCard";
 import { getSubjectColor } from "@/lib/utils";
-import CompanionList from "./CompanionList";
-import CTA from "./CTA";
+import CompanionList from "@/components/CompanionList";
+import CTA from "@/components/CTA";
 
 const Home = async () => {
     const companions = await getAllCompanions({ limit: 3});
     const recentSessionCompanions = await getRecentSessions(10);
     
   return (
-   <>
+   <main>
       <h1 className='text-3xl font-bold mt-7'>Popular Companions</h1>
         
         <section className="home-section">
@@ -31,7 +31,7 @@ const Home = async () => {
           />
           <CTA />
         </section>
-      </>
+    </main>
   )
 }
 

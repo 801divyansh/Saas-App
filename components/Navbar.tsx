@@ -68,7 +68,7 @@ const Navbar = () => {
 
       {/* Mobile Dropdown */}
       {menuOpen && (
-        <div className="absolute top-full right-0 mt-2 w-48 bg-white shadow-lg rounded-lg z-50 flex flex-col p-4 md:hidden">
+        <div className="absolute top-full right-0 mt-2 w-48 bg-white dark:bg-gray-900 shadow-lg rounded-lg z-50 flex flex-col p-4 md:hidden">
           <NavItems mobile />
           <div className="flex flex-col gap-2 mt-4">
             <SignedOut>

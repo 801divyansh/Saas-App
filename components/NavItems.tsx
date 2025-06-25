@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
-    { label: "Home", href: "/" },
+    { label: "Dashboard", href: "/Dashboard" },
     { label: "Companions", href: "/companions" },
     { label: "Plans" , href: "/subscription" },
     { label: "My Journey", href: "my-journey" },
