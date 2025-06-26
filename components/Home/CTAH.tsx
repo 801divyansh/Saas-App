@@ -21,9 +21,9 @@ export default function CTA() {
         <p className="text-md sm:text-lg max-w-2xl mx-auto mb-6">
           Start using our smart assistant today and see the difference in minutes. It's fast, intuitive, and built to scale.
         </p>
-        <Link href="/companions">
+        <Link href="/companions/new">
           <Button size="lg" variant="secondary" className="text-black bg-white hover:bg-neutral-100">
-            Get Started Free
+            Bulid Your Companion
           </Button>
         </Link>
       </motion.div>

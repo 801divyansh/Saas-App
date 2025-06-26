@@ -7,6 +7,7 @@ import Lottie from "lottie-react";
 import Link from "next/link";
 import animationData from "@/constants/4Jroswou69.json";
 import { Badges } from "@/components/Home/Badges";
+import { GlowEffect } from "@/components/GlowEffect"
 
 export default function Hero() {
 
@@ -39,7 +40,7 @@ export default function Hero() {
           className="mt-4"
         >
           <Link href="/Dashboard">
-            <Button size="lg">Try it Free</Button>
+            <Button size="lg">Try it Free </Button>
           </Link>
         </motion.div>
 
