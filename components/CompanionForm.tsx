@@ -23,6 +23,8 @@ import { subjects } from "@/constants"
 import { Textarea } from "./ui/textarea"
 import { createCompanion } from "@/lib/actions/companion.actions"
 import { redirect } from "next/navigation"
+import { useState } from 'react';
+
 
 const formSchema = z.object({
   name: z.string().min(1, {message: 'Companion is required'}),
@@ -34,6 +36,7 @@ const formSchema = z.object({
 })
 
 const CompanionForm = () => {
+    const [loading, setLoading] = useState(false);
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -47,6 +50,7 @@ const CompanionForm = () => {
     })
   
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
+        setLoading(true);
         const companion = await createCompanion(values);
 
         if(companion) {
@@ -67,7 +71,9 @@ const CompanionForm = () => {
             <FormItem>
               <FormLabel>Companion Name</FormLabel>
               <FormControl>
-                <Input placeholder="Enter the companion name" {...field} className="input" />
+                <Input placeholder="Enter the companion name" {...field} className="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm
+                  focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]
+                  aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive " />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -84,7 +90,9 @@ const CompanionForm = () => {
                 value={field.value}
                 defaultValue={field.value}
               >
-                    <SelectTrigger className="input capitalize">
+                    <SelectTrigger className="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm
+                          focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]
+                          aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive">
                         <SelectValue placeholder="Select the subject" />
                     </SelectTrigger>
                     <SelectContent>
@@ -99,7 +107,7 @@ const CompanionForm = () => {
                         ))}
                     </SelectContent>
                 </Select>
-                                </FormControl>
+                </FormControl>
               <FormMessage />
             </FormItem>
           )}
@@ -111,70 +119,78 @@ const CompanionForm = () => {
             <FormItem>
               <FormLabel>What should the companion help with?</FormLabel>
               <FormControl>
-                <Textarea placeholder="Ex. Derivates & Integrals" {...field} className="input" />
+                <Textarea placeholder="Ex. Derivates & Integrals" {...field} className="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm
+                  focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]
+                  aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive" />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
         
-        <FormField
-          control={form.control}
-          name="voice"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Voice</FormLabel>
-               <FormControl>
-                    <Select onValueChange={field.onChange}
-                        value={field.value}
-                        defaultValue={field.value}
-                    >
-                        <SelectTrigger className="input">
-                            <SelectValue placeholder="Select the voice" />
-                        </SelectTrigger>
-                        <SelectContent>
-                            <SelectItem value="male">
-                                Male
-                            </SelectItem>
-                            <SelectItem value="female">
-                                Female
-                            </SelectItem>
-                        </SelectContent>
-                    </Select>
-               </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        
-        <FormField
-          control={form.control}
-          name="style"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Style</FormLabel>
-               <FormControl>
-                    <Select onValueChange={field.onChange}
-                        value={field.value}
-                        defaultValue={field.value}
-                    >
-                        <SelectTrigger className="input">
-                            <SelectValue placeholder="Select the style" />
-                        </SelectTrigger>
-                        <SelectContent>
-                            <SelectItem value="formal">
-                                Formal
-                            </SelectItem>
-                            <SelectItem value="casual">
-                                Casual
-                            </SelectItem>
-                        </SelectContent>
-                    </Select>
-               </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <FormField
+            control={form.control}
+            name="voice"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Voice</FormLabel>
+                <FormControl>
+                      <Select onValueChange={field.onChange}
+                          value={field.value}
+                          defaultValue={field.value}
+                      >
+                          <SelectTrigger className="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm
+                                focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]
+                                aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive">
+                              <SelectValue placeholder="Select the voice" />
+                          </SelectTrigger>
+                          <SelectContent>
+                              <SelectItem value="male">
+                                  Male
+                              </SelectItem>
+                              <SelectItem value="female">
+                                  Female
+                              </SelectItem>
+                          </SelectContent>
+                      </Select>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          
+          <FormField
+            control={form.control}
+            name="style"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Style</FormLabel>
+                <FormControl>
+                      <Select onValueChange={field.onChange}
+                          value={field.value}
+                          defaultValue={field.value}
+                      >
+                          <SelectTrigger className="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm
+                                focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]
+                                aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive">
+                              <SelectValue placeholder="Select the style" />
+                          </SelectTrigger>
+                          <SelectContent>
+                              <SelectItem value="formal">
+                                  Formal
+                              </SelectItem>
+                              <SelectItem value="casual">
+                                  Casual
+                              </SelectItem>
+                          </SelectContent>
+                      </Select>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
 
         <FormField
           control={form.control}
@@ -183,13 +199,25 @@ const CompanionForm = () => {
             <FormItem>
               <FormLabel>Estimated session duration in minutes</FormLabel>
               <FormControl>
-                <Input type="number" placeholder="15" {...field} className="input" />
+                <Input type="number" placeholder="15" {...field} className="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm
+                    focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]
+                    aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive" />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full cursor-pointer" >Build Your Companion</Button>
+        <Button
+          type="submit"
+          className="w-full rounded-xl py-2 font-semibold transition-all duration-300 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white hover:brightness-110 hover:shadow-xl"
+          disabled={loading}
+        >
+          {loading ? (
+            <span className="animate-pulse">Building...</span>
+          ) : (
+            'Build Your Companion'
+          )}
+        </Button>
       </form>
     </Form>
   )
