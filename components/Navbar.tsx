@@ -3,11 +3,37 @@ import Link from "next/link"
 import NavItems from "./NavItems"
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs"
 import { Button } from "./ui/button"
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
+  const menuRef = useRef<HTMLDivElement>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        menuRef.current && 
+        !menuRef.current.contains(event.target as Node) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target as Node)
+      ) {
+        setMenuOpen(false)
+      }
+    }
+
+    // Add event listener if menu is open
+    if (menuOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    // Cleanup event listener
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [menuOpen])
 
   return (
     <motion.nav 
@@ -47,6 +73,7 @@ const Navbar = () => {
           {/* Hamburger for mobile */}
           <div className="md:hidden flex items-center">
             <button
+              ref={buttonRef}
               onClick={() => setMenuOpen(!menuOpen)}
               className="p-2 focus:outline-none"
               aria-label="Open menu"
@@ -68,7 +95,10 @@ const Navbar = () => {
 
       {/* Mobile Dropdown */}
       {menuOpen && (
-        <div className="absolute top-full right-0 mt-2 w-48 bg-white dark:bg-gray-900 shadow-lg rounded-lg z-50 flex flex-col p-4 md:hidden">
+        <div 
+          ref={menuRef}
+          className="absolute top-full right-0 mt-2 w-48 bg-white dark:bg-gray-900 shadow-lg rounded-lg z-50 flex flex-col p-4 md:hidden"
+        >
           <NavItems mobile />
           <div className="flex flex-col gap-2 mt-4">
             <SignedOut>

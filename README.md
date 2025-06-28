@@ -73,7 +73,7 @@ saas_app/
 ---
 
 ## 🌐 Deployment
-This project is ready for deployment on [Vercel](https://vercel.com/):
+This project is ready for deployment on [Vercel](https://saas-app-ecru.vercel.app/):
 - Push your code to GitHub
 - Connect your repo to Vercel
 - Set environment variables in Vercel dashboard

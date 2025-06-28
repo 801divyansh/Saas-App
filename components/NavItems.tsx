@@ -8,7 +8,7 @@ const navItems = [
     { label: "Dashboard", href: "/Dashboard" },
     { label: "Companions", href: "/companions" },
     { label: "Plans" , href: "/subscription" },
-    { label: "My Journey", href: "my-journey" },
+    { label: "My Journey", href: "/my-journey" },
 ]
 
 const NavItems = ({ mobile = false }: { mobile?: boolean }) => {
@@ -20,7 +20,7 @@ const NavItems = ({ mobile = false }: { mobile?: boolean }) => {
                     href={href}
                     key={label}
                     className={cn(
-                        pathname === href && "text-primary font-semibold",
+                        pathname === href && "bg-gradient-to-r from-primary to-orange-500 bg-clip-text text-transparent dark:from-orange-400 dark:to-orange-300 font-semibold",
                         mobile && "text-lg"
                     )}
                 >

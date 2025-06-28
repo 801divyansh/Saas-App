@@ -14,6 +14,11 @@ const bricolage = Bricolage_Grotesque({
 export const metadata: Metadata = {
   title: "EduBuddy AI",
   description: "Real-time AI Teaching Platform",
+  icons: {
+    icon: '/app-icon.svg',
+    shortcut: '/app-icon.svg',
+    apple: '/app-icon.svg',
+  },
 };
 
 export default function RootLayout({

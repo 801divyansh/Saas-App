@@ -43,7 +43,7 @@ const CompanionCard = ({
         <span className="px-3 py-1 text-xs font-semibold tracking-wide uppercase rounded-full bg-black/10 dark:bg-white/10 text-black dark:text-white shadow-sm">
           {subject}
         </span>
-        <Button className="rounded-full bg-black/20 px-3 bg-black/80 hover:bg-white dark:bg-black/20 dark:hover:bg-black/30">
+        <Button className="rounded-full bg-black/20 px-3 hover:bg-white dark:bg-black/20 dark:hover:bg-black/30">
           <Image
             src="/icons/bookmark.svg"
             alt="bookmark"

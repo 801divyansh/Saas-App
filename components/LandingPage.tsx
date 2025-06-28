@@ -6,6 +6,7 @@ import { Testimonials } from "@/components/Home/Testimonials";
 import CTA from "@/components/Home/CTAH";
 import { StatsSection } from "./Home/StatsSection";
 
+
 export default function LandingPage() {
   return (
     <>
@@ -16,6 +17,7 @@ export default function LandingPage() {
         <StatsSection />
         <CTA />
       </LandingLayout>
+      
     </>
   );
 }

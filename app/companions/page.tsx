@@ -13,8 +13,9 @@ const CompanionsLibrary = async ({ searchParams } : SearchParams ) => {
 
   return (
     <main className="px-4 sm:px-8 lg:px-16 pb-28">
+
       {/* Top Section */}
-      <section className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mt-10 mb-8">
+      <section className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mt-10 mb-8 ">
         <h1 className="text-3xl font-extrabold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
           Companion Library
         </h1>

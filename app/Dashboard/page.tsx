@@ -14,7 +14,7 @@ const Home = async () => {
     <main className="px-6 md:px-10 lg:px-16 pb-32">
       <div className="text-center my-12">
         <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 bg-clip-text text-transparent">
-          Popular Companions
+          Your Companions
         </h1>
         <p className="mt-3 text-muted-foreground text-lg max-w-xl mx-auto">
           Explore top-rated AI companions built to support your goals.

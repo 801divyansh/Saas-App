@@ -137,9 +137,16 @@ export function GlowEffect({
           "--scale": scale,
           willChange: "transform",
           backfaceVisibility: "hidden",
-        } as React.CSSProperties
+         } as React.CSSProperties
       }
-      animate={animations[mode]}
+      animate={
+        typeof animations[mode].background === "string" || Array.isArray(animations[mode].background)
+          ? { background: animations[mode].background }
+          : undefined
+      }
+      transition={
+        (animations[mode] as any).transition
+      }
       className={cn(
         "pointer-events-none z-10 absolute inset-0 h-full w-full",
         "scale-[var(--scale)] transform-gpu",
