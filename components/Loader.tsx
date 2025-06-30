@@ -7,7 +7,7 @@ export default function ThemeLoader() {
   const { theme } = useTheme();
 
   return (
-    <div className="flex items-center justify-center w-full min-h-[60vh]">
+    <div className="flex items-center justify-center w-full min-h-[85vh] lg:min-h-[85vh]">
       <div className="relative flex gap-3">
         {[...Array(3)].map((_, i) => (
           <span

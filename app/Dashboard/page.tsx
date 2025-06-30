@@ -5,8 +5,13 @@ import { getSubjectColor } from "@/lib/utils";
 import CompanionList from "@/components/CompanionList";
 import CTA from "@/components/CTA";
 export const dynamic = "force-dynamic";
+import { redirect } from "next/navigation";
+import { currentUser } from "@clerk/nextjs/server";
 
 const Home = async () => {
+  const user = await currentUser();
+  if (!user) redirect("/sign-in");
+
   const companions = await getAllCompanions({ limit: 3 });
   const recentSessionCompanions = await getRecentSessions(10);
 
